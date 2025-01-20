@@ -12,6 +12,7 @@ jobs:
       DOCKER_IMAGE: beowolfk/nodejs-cicd
       DOCKER_TAG: latest
     steps:
+      - checkout
       - run:
           name: Test 
           command: |
