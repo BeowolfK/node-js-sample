@@ -14,17 +14,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Test 
-          command: |
-            pwd && ls
-      - run:
           name: Build Docker Image
           command: |
             docker build -t $DOCKER_IMAGE:$DOCKER_TAG .
       - run:
           name: Run the application to check if it's running
           command: |
-            docker run -d -p 8080:8080 $DOCKER_IMAGE:$DOCKER_TAG && curl http://127.0.0.1:8080  
+            docker run -d -p 8080:8080 $DOCKER_IMAGE:$DOCKER_TAG
+            curl http://127.0.0.1:8080  
       - run:
           name: Login to DockerHub
           command: |
