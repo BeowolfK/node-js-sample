@@ -1,9 +1,4 @@
 version: 2.1
-executors:
-  linux-executor:
-    machine:
-      image: ubuntu-2004:current
-    resource_class: large
 workflows:
   version: 2
   build-and-push:
@@ -11,7 +6,8 @@ workflows:
       - build-and-push
 jobs:
   build-and-push:
-    executor: linux-executor
+    machine:
+      image: ubuntu-2004:current
     environment:
       DOCKER_IMAGE: beowolfk/nodejs-cicd
       DOCKER_TAG: latest
